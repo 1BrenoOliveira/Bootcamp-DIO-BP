@@ -3,11 +3,12 @@ Desafio 002
 projeto de ...
 
 ## OBS: Sem utilizar a Class WebSecurityConfigurerAdapter
+Usei como referencia para substituir a implementação sem a classe WebSecurityConfigurerAdapter na documentação do Spring (https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter).
 
 ### COMMIT 1
 estrutura basica do spring security onde o login padrao, o username é "User" e o password é gerado aleatoriamente a cada execução e exibido no console. É a estrutura mais simples do Spring boot Security.
 
-### COMMIt 2 - Autenticação simples
+### COMMIT 2 - Autenticação simples
 essa é a forma mais simples de autenticação em um projeto spring boot. É possivel salvar a senha, password e role de acesso no arquivo application.properties para que seja uma padrao em todos as execuções. 
 São essas:
 
@@ -31,3 +32,7 @@ OBS:
 Se estamos buscando o controle de permissões, vamos adicionar acima da classe de condiguração, a anotação @EnableGlobalMethodSecurity(prePostEnabled=true) e adicionar nos methodos que deseja colocar o controle de acesso a anotação @PreAuthorize("hasRole('ADMIN')") - sendo admin a role de acesso.
 
  
+ #### COMMIT 3 - Configure Adapter / no caso utilizamos um Bean para nao ter q usar a classe com o Adapter
+- removeremos o controle de autenticação das classes controller, as formas expilicitas, reunindo tudo dentro da classe de configuração.
+
+Criar o metodo filterChain que ira comportar os controle de acessos na aplicação... 

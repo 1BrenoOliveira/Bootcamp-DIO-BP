@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ControllerUsers {
 
-	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/users")
 	public String findAll() {
 		return "lista de Usuarios: ...";

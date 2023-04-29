@@ -33,6 +33,27 @@ Se estamos buscando o controle de permissões, vamos adicionar acima da classe d
 
  
  #### COMMIT 3 - Configure Adapter / no caso utilizamos um Bean para nao ter q usar a classe com o Adapter
-- removeremos o controle de autenticação das classes controller, as formas expilicitas, reunindo tudo dentro da classe de configuração.
+- removemos o controle de autenticação das classes controller, as formas expilicitas, reunindo tudo dentro da classe de configuração.
 
 Criar o metodo filterChain que ira comportar os controle de acessos na aplicação... 
+
+
+#### COMMIT 4  - persistindo dandos em um banco MySql
+
+-Removemos o acesso dos usuario que era feitos em memoria interna, na classe de configuração, e adicionando metodos para persistir e encriptar as senhas.
+-Criamos a entidade USER, com as configurações para criar a classe no banco
+-Criamos A interface Repository, para permitir a execução das query's
+-Criamos a classe SecurityDatabaseService que fara a leitura e validação dos logins
+-por fim, criamos a classe StartApplication forçando a execução com inserções de usuarios no banco de dados...
+
+OBS: 
+1º) Vale ressaltar que as configurações de acesso do banco de dados ja haviam sido configuradas no Application.properties:
+        spring.datasource.url=jdbc:mysql://localhost:3306/UserManagement?allowPublicKeyRetrieval=true&useSSL=false
+        spring.datasource.username=root
+        spring.datasource.password =123456
+
+
+        spring.jpa.show.sql=true
+        spring.jpa.hibernate.ddl-auto=update
+        spring.jpa.open-in-view=false
+2º) É necessario inserir as dependencias do Spring data e driver MySQL, ja inseridas anteriormente...

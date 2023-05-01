@@ -57,3 +57,21 @@ OBS:
         spring.jpa.hibernate.ddl-auto=update
         spring.jpa.open-in-view=false
 2º) É necessario inserir as dependencias do Spring data e driver MySQL, ja inseridas anteriormente...
+
+#### COMMIT 5 - Focando no JWT
+
+Nesse commit, foi inserido umm novo projeto que começamos a implementar, para usar como foco a utilização de tokens para validações, acessos, com o uso do JWT
+
+Criamos um arquivo do zero, adicionamos as configuração do banco de dados no Application.properties e começamos a implementar.
+
+Vamos criar uma estrutura basica da aplicação novamente, com mvc do User, depois implementaremos a estrutura do JWT:
+1º) O token em si é um objeto java, entao criaremos a classe do objeto(JWTObject)
+2º) Criaremos a classe que recebera as propriedades e credencias do token via application.properties(JWTCreator)
+3º) Criaremos a classe que ira gerar os tokens(JWTCreator)
+4º)Criaremos a classe que filtrará, fará a logica da validação dos tokens
+5º) Adicionar configurações no Application.properties:
+       - security.config.prefix=Bearer
+       - security.config.key=SECRET_KEY
+       - security.config.expiration=3600000 //tempo de expiração
+6º) E como configuramos o Spring Security, precisamos configurar o projeto para reconhecer e utilizar as classes JWT para validação. Criaremos a classe WebSecurityConfig.
+OBS: Nessa parte, teremos que alterar um pouco do codigo visto no curso, devido a classe WebSecurityConfigurerAdapter nao está mais em utilização, nao sendo possivel nem importa-la mais...
